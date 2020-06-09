@@ -14,7 +14,7 @@
         position: absolute;
         top:0px;
         right: 0px;
-        width:300px;
+        width:30vh;
         height:100%;
         background:rgb(0,0,0,0.3);
         margin: 0;
@@ -23,7 +23,7 @@
         position: absolute;
         top:0px;
         left: 0px;
-        width:300px;
+        width:30vh;
         height:100%;
         background:rgb(0,0,0,0.3);
         margin: 0;
@@ -31,19 +31,19 @@
     .asddd {
         position: absolute;
         top:0px;
-        left: 300px;
-        width:calc(100% - 600px);
-        height:200px;
+        left: 30vh;
+        width:calc(100% - 60vh);
+        height:20vh;
         background:rgb(0,0,0,0.3);
         margin: 0;
     }
     .asdddd {
         position: absolute;
         bottom: 0px;
-        width:calc(100% - 600px);
-        height:200px;
+        width:calc(100% - 60vh);
+        height:20vh;
         background:rgb(0,0,0,0.3);
-        left:300px
+        left:30vh
     }
 </style>
 <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
@@ -62,10 +62,40 @@
 <script type="module">
     import {Tool} from './module/tool.js'
     import {MyDate} from './module/date.js'
-    let time = new MyDate().getMonth();
+    let time = new MyDate().getTime();
     console.log(time)
     let s = new MyDate(time).format("yyyy年MM月dd日 hh时mm分ss秒");
     console.log(s)
+
+
+    async function hello() { return "Hello" };
+    hello().then(res=>{
+        console.log(res)
+        console.log(console)
+    })
+
+    async function myFetch() {
+        try {
+            let response = await fetch('https://developer.mozilla.org/static/img/favicon57.de33179910ae.png');
+            let myBlob = await response.blob()
+            console.log(myBlob)
+            let objectURL = URL.createObjectURL(myBlob);
+            let image = document.createElement('img');
+            image.src = objectURL;
+            document.body.appendChild(image);
+        } catch(e) {
+            console.log(e);
+        }
+    }
+    myFetch();
+
+    // 动态属性名
+    const dynamic = 'colsor';
+    var item = {
+        brand: 'Ford',
+        [dynamic]: 'Blue'
+    }
+    console.log(item);
 </script>
 <script type="text/javascript">
     //创建和初始化地图函数：

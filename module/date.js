@@ -9,7 +9,7 @@ export class MyDate extends Date
         if (time != undefined) {
             super(time);
         } else {
-            super()
+            super();
         }
     }
 
