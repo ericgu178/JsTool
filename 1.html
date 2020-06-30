@@ -60,19 +60,17 @@
 
 </body>
 <script type="module">
-    import {Tool} from './module/tool.js'
-    import {MyDate} from './module/date.js'
-    let time = new MyDate().getTime();
+    import tool from './module/tool.js'
+    import date from './module/date.js'
+    import {setStore,getStore,removeStore} from './module/store.js'
+    import random from './module/random.js'
+    setStore({key:'test',type:'session'},{key:'test',type:'session'})
+    console.log(getStore({key:'test',type:'session'}))
+    removeStore('test')
+    let time = new date().getTime();
     console.log(time)
-    let s = new MyDate(time).format("yyyy年MM月dd日 hh时mm分ss秒");
+    let s = new date(time).format("yyyy年MM月dd日 hh时mm分ss秒");
     console.log(s)
-
-
-    async function hello() { return "Hello" };
-    hello().then(res=>{
-        console.log(res)
-        console.log(console)
-    })
 
     async function myFetch() {
         try {
@@ -89,13 +87,36 @@
     }
     myFetch();
 
-    // 动态属性名
-    const dynamic = 'colsor';
-    var item = {
-        brand: 'Ford',
-        [dynamic]: 'Blue'
+    function createAction() {
+        var message = "封闭环境内的变量";
+        const dynamic = 'colasdasor';
+        var item = {
+            brand: 'Ford',
+            [dynamic]: 'Blue'
+        }
+        return function() {
+            console.log(item)
+            console.log(message);
+        }
     }
-    console.log(item);
+    const showMessage = createAction?.();
+    showMessage();
+
+    var num = 1 << 2;
+    console.log('位运算',num)
+    var toggle = 1;
+    console.log(toggle ^= 1);
+    console.log(!!num)
+    let b = 'google'.link('www.google.com');  // 还可以这么玩 估计有用啊 迷惑同事
+    console.log(b,123);
+
+    // 可选链
+
+    const obj = {
+        name:'我是路易斯苏牙雷斯'
+    }
+
+    console.log(obj?.name,obj.accc?.());
 </script>
 <script type="text/javascript">
     //创建和初始化地图函数：

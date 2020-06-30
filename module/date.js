@@ -1,7 +1,7 @@
 // 日期处理等
 
 
-export class MyDate extends Date 
+export default class MyDate extends Date 
 {
     // 初始化
     constructor(time) 

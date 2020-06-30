@@ -2,7 +2,7 @@
 
 
 
-export class Tool {
+export default class Tool {
     // 初始化
     constructor() {
 
