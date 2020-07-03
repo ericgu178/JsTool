@@ -64,6 +64,13 @@
     import date from './module/date.js'
     import {setStore,getStore,removeStore} from './module/store.js'
     import random from './module/random.js'
+    import array from './module/array.js'
+    const sa = [1,2,3,4]
+    var a = new array();
+    a.remove(2)
+    console.log(a)
+    return;
+    
     setStore({key:'test',type:'session'},{key:'test',type:'session'})
     console.log(getStore({key:'test',type:'session'}))
     removeStore('test')
